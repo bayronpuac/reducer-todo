@@ -1,45 +1,13 @@
-import React, {useReducer} from 'react';
-import {initialState, reducer} from '../reducers/reducer';
+import React from 'react';
 
-
-export const Todo = () => {
-    const [{ editing, title }, dispatch] = useReducer(reducer, initialState);
-
-    return(
-    <form>
-        <label>
-            Todo:
-            <input type="text" name="name" />
-            </label>
-        <input type="submit" value="Submit" />
-        {!editing ? (
-        <h1>
-          {title}{" "}
-          <i
-            className="far fa-edit"
-            onClick={() => dispatch({ type: "TOGGLE_EDIT" })}
-          />
-        </h1>
-      ) : (
-        <div>
-          <input
-            className="title-input"
-            type="text"
-            name="newTitleText"
-            value={newTitleText}
-            onChange={handleChanges}
-          />
-          <button
-            onClick={() =>
-              dispatch({ type: "SET_TITLE", payload: newTitleText })
-            }
-          >
-            Update title
-          </button>
-        </div>
-      )}
-    </form>
-    )
-}
+const Todo = props =>  {
+    return (
+        <div
+        className={`todo${props.todo.completed ? ' completed' : ''}`}
+        onClick={() => props.toggleTodo({type: 'TOGGLE_ITEM', payload: props.todo.id})}>
+            <p>{props.todo.name}</p>
+          </div>
+    );
+};
 
 export default Todo;
