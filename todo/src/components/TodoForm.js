@@ -6,7 +6,7 @@ export default function TodoForm ({state, dispatch}) {
     function handleChange(e) {
         setNewTodo(e.target.value);
     }
-
+    
     function submitTodo (e)  {
         e.preventDefault();
         setNewTodo('');

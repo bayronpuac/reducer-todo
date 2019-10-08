@@ -1,16 +1,14 @@
-import React, {useState, useReducer} from 'react';
+import React, { useReducer} from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import './App.css';
 
 
 //Reducer 
-import { initialState, todoReducer} from './reducers/todoReducer';
+import { initialState, todoReducer} from './reducers/todoReducer'; 
 
 
 function App() {
-
-  const [todo, setTodo] = useState();
 
   //reducer
   const [state, dispatch]= useReducer(todoReducer, initialState);

@@ -1,5 +1,3 @@
-// Export Two Things - initialState, reducer fn
-
 export const initialState = {
     todoData: [
         {
